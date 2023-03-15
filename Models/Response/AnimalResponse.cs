@@ -5,7 +5,7 @@ namespace ZooManagement.Models.Response
     public class AnimalResponse
     {
         public int Id { get; set; }
-        public Species Species { get; set; }
+        public int SpeciesId { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
         public DateOnly DateOfBirth { get; set; }
@@ -14,7 +14,7 @@ namespace ZooManagement.Models.Response
         public AnimalResponse(Animal animal)
         {
             Id = animal.Id;
-            Species = animal.Species;
+            SpeciesId = animal.SpeciesId;
             Name = animal.Name;
             Sex = animal.Sex;
             DateOfBirth = animal.DateOfBirth;

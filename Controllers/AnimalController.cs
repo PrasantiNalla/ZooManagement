@@ -1,8 +1,12 @@
+
+using System;
+using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ZooManagement.Models.Database;
+using ZooManagement.Models.Response;
 using ZooManagement.Models.Request;
 using ZooManagement.Repositories;
-using ZooManagement.Models.Response;
+
 
 
 namespace ZooManagement.Controllers;
@@ -24,11 +28,21 @@ public class AnimalController : ControllerBase
         var response = _animals.CreateAnimal(animalRequest);
         return Ok(response);
     }
+
     [HttpGet("api/get-animal/{id}")]
     public ActionResult<AnimalResponse> GetById([FromRoute] int id)
     {
         var animal = _animals.GetById(id);
         return Ok(new AnimalResponse(animal));
     }
+
+    [HttpGet("Search")]
+    public ActionResult<AnimalListResponse> Search([FromQuery] AnimalSearchRequest searchRequest)
+    {
+        var animals = _animals.Search(searchRequest);
+        var animalCount = _animals.Count(searchRequest);
+        return AnimalListResponse.Create(searchRequest, animals, animalCount);
+    }
+
 
 }

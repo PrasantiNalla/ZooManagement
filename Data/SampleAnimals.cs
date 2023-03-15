@@ -138,9 +138,6 @@ public static class SampleAnimals
     private static Animal AddAnimal(int index)
     {
 
-        // List<Species> newSpeciesList = SampleSpecies.AddAllSpecies().ToList();
-        // var randgen = new Random();
-        // var randomSpecies = newSpeciesList[randgen.Next(5)];
         Random random = new Random();
         int randomNumber = random.Next(1, 6);
 

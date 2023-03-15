@@ -25,7 +25,7 @@ public class SpeciesController : ControllerBase
         return Ok(response);
 
     }
-    [HttpGet("api/get-animal/{id}")]
+    [HttpGet("api/get-species/{id}")]
     public ActionResult<SpeciesResponse> GetBySpeciesId([FromRoute] int id)
     {
         var species = _species.GetSpeciesById(id);

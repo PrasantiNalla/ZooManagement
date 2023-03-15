@@ -9,7 +9,6 @@ namespace ZooManagement.Models.Response
         public string Classification { get; set; }
         public List<Animal> Animals { get; set; }//use length to get the count 
 
-
         public SpeciesResponse(Species species)
         {
             Id = species.Id;
