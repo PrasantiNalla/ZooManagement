@@ -40,7 +40,7 @@ public class AnimalController : ControllerBase
     public ActionResult<AnimalListResponse> Search([FromQuery] AnimalSearchRequest searchRequest)
     {
         var animals = _animals.Search(searchRequest);
-        var animalCount = _animals.Count(searchRequest);
+        var animalCount = animals.Count();
         return AnimalListResponse.Create(searchRequest, animals, animalCount);
     }
 
